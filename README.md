@@ -135,6 +135,9 @@ network.host: 10.0.1.57
 
 By default the value is 127.0.0.1, which however prevents to access from outside the machine. 
 
+```bash
+service elasticsearch restart
+```
 
 ### Install Kibana with RPM
 
@@ -190,4 +193,10 @@ Kibana confiruation file is similarly located at /etc/kibana/kibana.yml and the 
 server.host: 10.0.1.57
 elasticsearch.url: "http://localhost:9200"
 ```
+
+```bash
+service kibana restart
+```
+
+
 
