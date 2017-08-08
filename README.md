@@ -24,6 +24,8 @@ git clone https://github.com/topconnector/tc-vagrant-vmware-centos-elasticsearch
 cd tc-vagrant-vmware-centos-elasticsearch-kibana
 ```
 
+## NOTE: bootstrapelasticsearch.sh is performing automatic installation.
+
 ### Install Elasticsearch with RPM
 https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html
 
