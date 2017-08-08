@@ -198,9 +198,89 @@ elasticsearch.url: "http://localhost:9200"
 service kibana restart
 ```
 
-In the browser:
+Open Kibana UI in the browser:
 
 http://10.0.1.57:5601
+
+Click DevTools.
+
+```Javascript
+PUT /megacorp/employee/1
+{
+    "first_name" : "John",
+    "last_name" :  "Smith",
+    "age" :        25,
+    "about" :      "I love to go rock climbing",
+    "interests": [ "sports", "music" ]
+}
+```
+
+```Javascript
+PUT /megacorp/employee/2
+{
+    "first_name" :  "Jane",
+    "last_name" :   "Smith",
+    "age" :         32,
+    "about" :       "I like to collect rock albums",
+    "interests":  [ "music" ]
+}
+```
+
+```Javascript
+PUT /megacorp/employee/3
+{
+    "first_name" :  "Douglas",
+    "last_name" :   "Fir",
+    "age" :         35,
+    "about":        "I like to build cabinets",
+    "interests":  [ "forestry" ]
+}
+```
+
+```Javascript
+GET /megacorp/employee/1
+```
+
+```Javascript
+GET /megacorp/employee/_search
+```
+
+```Javascript
+GET /megacorp/employee/_search?q=last_name:Smith
+```
+
+```Javascript
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "last_name" : "Smith"
+        }
+    }
+}
+```
+
+```Javascript
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "bool" : {
+            "must" : {
+                "match" : {
+                    "last_name" : "smith" 
+                }
+            },
+            "filter" : {
+                "range" : {
+                    "age" : { "gt" : 30 } 
+                }
+            }
+        }
+    }
+}
+
+```
+
 
 
 
