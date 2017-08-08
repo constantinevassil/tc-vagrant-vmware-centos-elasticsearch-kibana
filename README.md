@@ -185,8 +185,9 @@ These commands provide no feedback as to whether Kibana was started successfully
 
 Kibana confiruation file is similarly located at /etc/kibana/kibana.yml and the values you have to modify are
 
+
+```bash
 server.host: 10.0.1.57
 elasticsearch.url: "http://localhost:9200"
-
-
+```
 
