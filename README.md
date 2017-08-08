@@ -12,6 +12,9 @@ Topics:
 1. VMWare Fusion 
 1. Vagrant
 1. CentOS 7+
+1. Elasticserach
+1. Kibana
+1. Examples
 
 
 ## Getting started
