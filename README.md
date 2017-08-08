@@ -198,5 +198,9 @@ elasticsearch.url: "http://localhost:9200"
 service kibana restart
 ```
 
+In the browser:
+
+http://10.0.1.57:5601
+
 
 
