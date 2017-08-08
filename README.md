@@ -126,12 +126,13 @@ Get your VM public IP Address:
        valid_lft forever preferred_lft forever
 ```       
 
-Configure ElasticSearch and Kibana
+Configure ElasticSearch 
 
 The ElasticSearch configuration is located at /etc/elasticsearch/elasticsearch.yml
 The minimal change required to configuration is to set following value
 
 network.host: 10.0.1.57
+
 By default the value is 127.0.0.1, which however prevents to access from outside the machine. 
 
 
