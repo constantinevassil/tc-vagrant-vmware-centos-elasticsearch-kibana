@@ -198,11 +198,13 @@ elasticsearch.url: "http://localhost:9200"
 service kibana restart
 ```
 
-Open Kibana UI in the browser:
+### Open Kibana UI in the browser:
 
 http://10.0.1.57:5601
 
 Click DevTools.
+
+### Index a document per employee 1
 
 ```Javascript
 PUT /megacorp/employee/1
@@ -215,6 +217,8 @@ PUT /megacorp/employee/1
 }
 ```
 
+### Index a document per employee 2
+
 ```Javascript
 PUT /megacorp/employee/2
 {
@@ -225,6 +229,8 @@ PUT /megacorp/employee/2
     "interests":  [ "music" ]
 }
 ```
+
+### Index a document per employee 3
 
 ```Javascript
 PUT /megacorp/employee/3
@@ -237,9 +243,13 @@ PUT /megacorp/employee/3
 }
 ```
 
+### Retrieving a Document
+
 ```Javascript
 GET /megacorp/employee/1
 ```
+
+### Search Lite
 
 ```Javascript
 GET /megacorp/employee/_search
@@ -248,6 +258,8 @@ GET /megacorp/employee/_search
 ```Javascript
 GET /megacorp/employee/_search?q=last_name:Smith
 ```
+
+### Search with Query DSL
 
 ```Javascript
 GET /megacorp/employee/_search
@@ -259,6 +271,8 @@ GET /megacorp/employee/_search
     }
 }
 ```
+
+### More-Complicated Searches
 
 ```Javascript
 GET /megacorp/employee/_search
@@ -281,6 +295,64 @@ GET /megacorp/employee/_search
 
 ```
 
+### Full-Text Search
 
+```Javascript
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+```
+
+### Phrase Search
+
+```Javascript
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+```
+
+### Highlighting Our Searches
+
+```Javascript
+GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    },
+    "highlight": {
+        "fields" : {
+            "about" : {}
+        }
+    }
+}
+```
+
+### Analytics
+
+```Javascript
+GET /megacorp/employee/_search?pretty
+{
+ "size" : 0,
+ "aggs" : {
+     "all_interests" : {
+         "terms" : {
+           "field" : "age"
+         }
+     }
+ }
+}
+```
 
 
