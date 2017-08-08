@@ -1,0 +1,1 @@
+# tc-vagrant-vmware-centos-elasticsearch-kibana
