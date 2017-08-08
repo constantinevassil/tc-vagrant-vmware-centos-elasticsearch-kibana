@@ -53,7 +53,7 @@ sudo yum install elasticsearch
 
 Elasticsearch is not started automatically after installation. 
 
-Running Elasticsearch with systemdedit
+Running Elasticsearch with systemd
 To configure Elasticsearch to start automatically when the system boots up, run the following commands:
 
 ```bash
@@ -135,6 +135,53 @@ network.host: 10.0.1.57
 
 By default the value is 127.0.0.1, which however prevents to access from outside the machine. 
 
+
+### Install Kibana with RPM
+
+https://www.elastic.co/guide/en/kibana/current/rpm.html
+
+Import the Elastic PGP Key
+
+Download and install the public signing key:
+
+rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+Installing from the RPM repositoryedit
+Create a file called kibana.repo in the /etc/yum.repos.d/ directory for RedHat based distributions, or in the /etc/zypp/repos.d/ directory for OpenSuSE based distributions, containing:
+
+```bash
+[kibana-5.x]
+name=Kibana repository for 5.x packages
+baseurl=https://artifacts.elastic.co/packages/5.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+```
+
+And your repository is ready for use. You can now install Kibana with the following command:
+
+sudo yum install kibana
+
+
+Running Kibana with systemdedit
+To configure Kibana to start automatically when the system boots up, run the following commands:
+
+
+```bash
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable kibana.service
+```
+
+Kibana can be started and stopped as follows:
+
+```bash
+sudo systemctl start kibana.service
+sudo systemctl stop kibana.service
+```
+
+These commands provide no feedback as to whether Kibana was started successfully or not. Instead, this information will be written in the log files located in /var/log/kibana/.
 
 
 
