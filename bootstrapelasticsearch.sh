@@ -1,5 +1,6 @@
 #!/bin/bash
- 
+
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
  
 echo "Adding Elasticsearch repository elastic.repo."
