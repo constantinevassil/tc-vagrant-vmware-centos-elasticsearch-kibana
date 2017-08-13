@@ -95,7 +95,7 @@ To list journal entries for the elasticsearch service starting from a given time
 sudo journalctl --unit elasticsearch --since  "2016-10-30 18:17:16"
 ```
 
-Checking that Elasticsearch is runningedit
+Checking that Elasticsearch is running
 You can test that your Elasticsearch node is running by sending an HTTP request to port 9200 on localhost:
 
 ```bash
